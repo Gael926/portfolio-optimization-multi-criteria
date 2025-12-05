@@ -1,0 +1,4 @@
+L1 (Lasso)
+cardinalité
+
+Est ce qu'on ne peut pas relaxer une contrainte de cardinalité sur un portefeuille d'actions optimisé avec le modèle de marchovischtk avec L1 ? si oui, sous quelles conditions ?
