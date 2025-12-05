@@ -4,3 +4,7 @@ __pycache__/
 mlruns/
 model/*.pkl
 .env
+.venv/
+venv/
+data/
+!data/.gitkeep
