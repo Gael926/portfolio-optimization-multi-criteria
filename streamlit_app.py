@@ -7,21 +7,17 @@ import sys
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Add src to path just in case
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
 from src.portfolio_lib import optimize_markowitz, optimize_moo, resampling_efficient_frontier, get_rend_vol_sr
 
-# --- CONFIG ---
 st.set_page_config(page_title="Optimisation de Portefeuille", page_icon="📈", layout="wide")
 
-# --- DATA LOADING ---
 @st.cache_data
 def load_data():
-    # Attempt to find the processed data
-    # Assuming relative path from valid CWD or absolute path logic
+
     base_path = os.path.dirname(os.path.abspath(__file__))
     data_path = os.path.join(base_path, 'data', 'processed', 'daily_returns.csv')
     
@@ -41,7 +37,7 @@ def get_mu_sigma(df):
 # --- UI APP ---
 
 def main():
-    st.title("📈 Projet Final : Optimisation de Portefeuille")
+    st.title("Projet Final : Optimisation de Portefeuille")
     
     df = load_data()
     if df is None:
