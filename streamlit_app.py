@@ -163,7 +163,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
             height=600, # Balanced height
             margin=dict(l=0, r=0, b=0, t=10) # Minimize margins
         )
-        st.plotly_chart(fig_3d, use_container_width=True)
+        st.plotly_chart(fig_3d, width="stretch")
 
         
         # Selection & Filtering
@@ -259,7 +259,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
                     showlegend=True,
                     legend=dict(orientation="h", yanchor="top", y=-0.1, xanchor="center", x=0.5)
                 )
-                st.plotly_chart(fig_pie_sector, use_container_width=True)
+                st.plotly_chart(fig_pie_sector, width="stretch")
             else:
                  st.info("Secteurs non disponibles")
 
@@ -272,7 +272,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
                 showlegend=True,
                 legend=dict(orientation="h", yanchor="top", y=-0.1, xanchor="center", x=0.5)
             )
-            st.plotly_chart(fig_pie_assets, use_container_width=True)
+            st.plotly_chart(fig_pie_assets, width="stretch")
 
         with col_table_right:
             st.markdown("**Composition Détaillée**")
@@ -284,7 +284,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
                     "Poids": st.column_config.TextColumn("Poids (%)"),
                 },
                 hide_index=True, 
-                use_container_width=True,
+                width="stretch",
                 height=common_height 
             )
 

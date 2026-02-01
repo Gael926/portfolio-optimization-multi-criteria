@@ -1,5 +1,5 @@
 
-# 📈 Optimisation de Portefeuille Multi-Objectifs (NSGA-II)
+# Optimisation de Portefeuille Multi-Objectifs (NSGA-II)
 
 Ce projet implémente une approche progressive pour l'optimisation de portefeuille d'actifs financiers, allant de la théorie moderne classique (Markowitz) à des algorithmes génétiques avancés (NSGA-II) prenant en compte des contraintes réalistes.
 
@@ -44,16 +44,15 @@ Une des deux options suivantes :
 ### Installation
 
 #### Via Docker (Recommandé)
-Pour lancer le projet sans rien installer sur votre machine :
+Pour lancer le projet de manière robuste (gestion automatique des ports) :
 
 ```bash
-# Construction de l'image
-docker build -t finance-app .
+# Sur Windows (PowerShell)
+.\run.ps1
 
-# Lancement de l'application
-docker run -p 8501:8501 finance-app
+# Sur Mac ou Linux
+chmod +x run.sh && ./run.sh
 ```
-> L'application sera accessible sur `http://localhost:8501`.
 
 #### Via Python (Local)
 Si vous préférez l'installation manuelle :
@@ -78,7 +77,3 @@ Pour comprendre la logique et voir les analyses détaillées :
 *   **Optimisation Réaliste :** Prise en compte des frais de courtage qui impactent la performance réelle.
 *   **Diversification Intelligente :** L'algorithme sélectionne les meilleurs actifs (Cardinalité $K$) pour réduire le risque sans diluer la performance.
 *   **Visualisation 3D :** Comprendre les compromis (trade-offs) entre Risque, Rendement et Coûts grâce à `plotly`.
-
----
-
-> Gaël LE REUN - Aubin HERAULT - Thomas BERTHO

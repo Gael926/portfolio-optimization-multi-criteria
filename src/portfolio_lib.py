@@ -19,18 +19,23 @@ class PortfolioProblem(ElementwiseProblem):
         self.sigma = sigma
         self.k_card = k_card
         self.trans_cost = trans_cost
-        self.w_prev = w_prev if w_prev is not None else np.zeros(len(mu))
+        if w_prev is not None:
+            self.w_prev = w_prev
+        else:
+            self.w_prev = np.zeros(len(mu))
         
         n_obj = 3 # Rendement, Risque, Transaction Cost
         
-        super().__init__(n_var=len(mu),
-                         n_obj=n_obj,
-                         n_ieq_constr=0,
-                         xl=0.0,
-                         xu=1.0)
+        super().__init__(
+            n_var=len(mu),
+            n_obj=n_obj,
+            n_ieq_constr=0,
+            xl=0.0,
+            xu=1.0
+        )
 
     def _evaluate(self, x, out, *args, **kwargs):
-        # Cardinalité (Top K), on garde les K plus grands poids, les autres à 0
+        # Cardinalité (Top K), on garde les K plus grands poids et on met les autres à 0
         idx = np.argsort(x)
         x_clean = np.zeros_like(x)
         idx_top_k = idx[-self.k_card:]

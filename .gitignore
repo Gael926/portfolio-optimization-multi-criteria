@@ -29,6 +29,7 @@ ipython_config.py
 .env.production
 .idea/
 .vscode/
+.idea/
 *.swp
 *.swo
 
