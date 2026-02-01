@@ -115,7 +115,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
                 w_prev = load_initial_weights(asset_names)
                 
                 # Optimisation
-                res, final_weights_matrix = optimize_moo(mu, sigma, k_card, trans_cost, w_prev=w_prev, pop_size=60, n_gen=60)
+                res, final_weights_matrix = optimize_moo(mu, sigma, k_card, trans_cost, w_prev=w_prev, pop_size=100, n_gen=100)
                 st.session_state["moo_results"] = (res, final_weights_matrix)
                 st.session_state["moo_params"] = param_key
         
