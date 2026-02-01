@@ -14,7 +14,30 @@ if project_root not in sys.path:
 
 from src.portfolio_lib import optimize_moo
 
+# UI Configuration
 st.set_page_config(page_title="Optimisation de Portefeuille", page_icon="📈", layout="wide")
+
+# Custom CSS for better contrast in Light Mode
+st.markdown("""
+<style>
+    /* Card-like styling for metrics using Theme Variables */
+    div[data-testid="stMetric"] {
+        background-color: var(--secondary-background-color); 
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid rgba(128, 128, 128, 0.2); /* Subtle border */
+        color: var(--text-color);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Soft shadow */
+    }
+    
+    /* Stronger border for the DataFrame to make it pop in Light Mode */
+    div[data-testid="stDataFrame"] {
+        border: 1px solid #a0a0a0; /* Darker grey border */
+        border-radius: 5px;
+        padding: 2px;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # Fonctions de chargement de données
 @st.cache_data
@@ -142,6 +165,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
                 color=returns,
                 colorscale='Viridis',
                 opacity=0.9,
+                line=dict(width=1, color='DarkSlateGrey'), # Outline for contrast on white bg
                 colorbar=dict(title='Rendement', tickformat='.1%')
             ),
             hovertemplate=(
@@ -259,6 +283,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
                     showlegend=True,
                     legend=dict(orientation="h", yanchor="top", y=-0.1, xanchor="center", x=0.5)
                 )
+                fig_pie_sector.update_traces(marker=dict(line=dict(color='#000000', width=1)))
                 st.plotly_chart(fig_pie_sector, width="stretch")
             else:
                  st.info("Secteurs non disponibles")
@@ -272,6 +297,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
                 showlegend=True,
                 legend=dict(orientation="h", yanchor="top", y=-0.1, xanchor="center", x=0.5)
             )
+            fig_pie_assets.update_traces(marker=dict(line=dict(color='#000000', width=1)))
             st.plotly_chart(fig_pie_assets, width="stretch")
 
         with col_table_right:
