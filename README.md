@@ -4,6 +4,8 @@
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+**[Tester l'Application en Ligne](https://portfolio-optimization-multi-criteria.streamlit.app/)**
+
 > Application d'optimisation de portefeuille financier utilisant l'algorithme génétique NSGA-II, de la théorie de Markowitz aux contraintes réelles (cardinalité, coûts de transaction).
 
 ---
