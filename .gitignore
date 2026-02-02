@@ -46,5 +46,3 @@ data/*
 !data/raw/
 
 !data/processed/
-data/processed/*
-!data/processed/.gitkeep
