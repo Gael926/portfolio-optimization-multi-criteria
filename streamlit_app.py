@@ -316,7 +316,7 @@ def show_demonstrator(mu, sigma, asset_names, sector_map, ticker_names):
 
 
 def main():
-    st.title("Projet Final : Optimisation de Portefeuille")
+    st.title("Optimisation Multi-Critères : Optimisation de Portefeuille")
     st.markdown("""
     Cette application présente l'optimisation Multi-Objectifs et un Démonstrateur interactif pour la sélection de portefeuille.
     """)

@@ -13,9 +13,11 @@ venv/
 .venv/
 pip-log.txt
 pip-delete-this-directory.txt
+.pytest_cache/
 
 # Jupyter
 .ipynb_checkpoints
+notebooks/
 
 # IDEs
 .idea/
@@ -27,10 +29,23 @@ pip-delete-this-directory.txt
 .DS_Store
 Thumbs.db
 
-# Project Data
+# Project Data (keep only what's needed at runtime)
 data/*
 !data/.gitkeep
 !data/raw/
 !data/raw/*
 !data/processed/
 !data/processed/*
+
+# Documentation & Reports (not needed in container)
+docs/
+reports/
+*.pdf
+README.md
+
+# Tests & CI (not needed in production image)
+tests/
+.github/
+
+# Download scripts (not needed at runtime)
+download_data/
