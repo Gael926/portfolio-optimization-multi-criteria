@@ -1,9 +1,11 @@
 # Linguist overrides for GitHub language statistics
-# Mark notebooks as vendored (not counted)
-*.ipynb linguist-vendored
+# See: https://github.com/github/linguist/blob/master/docs/overrides.md
 
-# Mark CSV as data (not counted)
+# Mark Jupyter notebooks as documentation (not counted in stats)
+*.ipynb linguist-documentation
+
+# Mark CSV data files as vendored (not counted)
 *.csv linguist-vendored
 
-# Explicitly mark Python as detectable
-*.py linguist-detectable
+# Mark any HTML files as vendored
+*.html linguist-vendored
